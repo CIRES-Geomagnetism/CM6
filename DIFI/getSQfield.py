@@ -19,7 +19,7 @@ def theta_to_geod_lat(theta: float) -> float:
 
     return lat
 
-def getSQfield(lat: Union[float, list], lon: Union[float, list], year: Union[int, list], month: Union[int, list], day: Union[int, list], hour: Union[int, list]=0, minutes: Union[int, list]=0, h: Union[float, list]=0,r: Union[float, list]=0, f107_1: Optional[Union[float, list]]=None, model_name: Optional[Union[str]]="xdifi2", geoc:Optional[bool] = False, return_geoc:Optional[bool] = False) -> dict:
+def getSQfield(lat: Union[float, list], lon: Union[float, list], year: Union[int, list], month: Union[int, list], day: Union[int, list], hour: Union[int, list]=0, minutes: Union[int, list]=0, h: Union[float, list]=0,r: Union[float, list]=0, f107_1: Optional[Union[float, list]]=None, model_name: Optional[Union[str]]="CM6", geoc:Optional[bool] = False, return_geoc:Optional[bool] = False) -> dict:
     """
     Input:
         Latitude, lat (in WGS-84 coordinates)
@@ -73,12 +73,12 @@ def getSQfield(lat: Union[float, list], lon: Union[float, list], year: Union[int
     start_f107_time = jd2000_dt.jd2000_dt(2000, 1, 1, 0, 0)
     end_f107_time =  jd2000_dt.jd2000_dt(2025, 1, 1, 0, 0) 
 
-    if (model_name.lower() == 'xdifi2'):
+    if (model_name.lower() == 'cm6'):
         """("importing coeff from xdifi")"""
         # from DIFI import get_f107_index_xDIFI as get_f107_index
-        from DIFI.get_f107_index_all import get_f107_index, load_coefs, load_swarm_xDIFI
+        from DIFI.get_f107_index_all import get_f107_index, load_coefs, load_swarm_CM6
         difi_t_f107, difi_f107 = load_coefs()
-        swarm_data = load_swarm_xDIFI()
+        swarm_data = load_swarm_CM6()
         end_time = float(difi_t_f107[-1])
         if np.any(sq_t < warn_year_2001):
             warnings.warn("Dataset contains date before 2001.0, outside xDIFI2's reccomended range")
