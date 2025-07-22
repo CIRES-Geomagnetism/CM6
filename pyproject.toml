@@ -3,6 +3,8 @@ name = "py_CM6"
 version = "1.0.0"
 authors = [
     { name="Collin Kadlecek", email="Collin.Kadlecek@colorado.edu" },
+    { name="Li-Yin Young", email="liyin.young@colorado.edu" },
+    { name="Liam Kilcommons", email="liam.kilcommons@colorado.edu" }
 ]
 description = "The python module for CM6"
 readme = "README.md"
