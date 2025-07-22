@@ -7,10 +7,11 @@
 
 env
 
-DIFI/*.pyc
-DIFI/__pycache__/
+CM6/*.pyc
+CM6/__pycache__/
  __pycache__/
 pyDIFI.egg-info/
 py_CM6.egg-info/
 dist/
 build/
+setup.py
