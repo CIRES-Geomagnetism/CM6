@@ -1,10 +1,10 @@
 import math
 
 from memory_profiler import profile
-from DIFI import SwarmL2_F107_Read
-from DIFI import SwarmL2_MIO_SHA_Read_v2
-from DIFI import getSQfield
-from DIFI import getSQfield as new_sqfield
+from CM6 import SwarmL2_F107_Read
+from CM6 import SwarmL2_MIO_SHA_Read_v2
+from CM6 import getSQfield
+from CM6 import getSQfield as new_sqfield
 
 import numpy as np
 import os

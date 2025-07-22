@@ -76,7 +76,7 @@ def getSQfield(lat: Union[float, list], lon: Union[float, list], year: Union[int
     if (model_name.lower() == 'cm6'):
         """("importing coeff from xdifi")"""
         # from DIFI import get_f107_index_xDIFI as get_f107_index
-        from DIFI.get_f107_index_all import get_f107_index, load_coefs, load_swarm_CM6
+        from CM6.get_f107_index_CM6 import get_f107_index, load_coefs, load_swarm_CM6
         difi_t_f107, difi_f107 = load_coefs()
         swarm_data = load_swarm_CM6()
         end_time = float(difi_t_f107[-1])
@@ -84,24 +84,6 @@ def getSQfield(lat: Union[float, list], lon: Union[float, list], year: Union[int
             warnings.warn("Dataset contains date before 2001.0, outside xDIFI2's reccomended range")
         if np.any(sq_t > warn_year_2024):
             warnings.warn("Dataset contains date after 2024.0, outside xDIFI2's reccomended range")
-    elif (model_name.lower() == 'difi8'):
-        """("importing coeff from difi8")"""
-        from DIFI.get_f107_index_all import get_f107_index, load_coefs, load_swarm_DIFI8
-        difi_t_f107, difi_f107 = load_coefs()
-        swarm_data = load_swarm_DIFI8()
-        end_time = float(difi_t_f107[-1])
-        if np.any(sq_t < warn_year_2014):
-            warnings.warn("Dataset contains date before 2014.0, outside DIFI8's reccomended range")
-        if np.any(sq_t > warn_year_2024):
-            warnings.warn("Dataset contains date after 2024.0, outside DIFI8's reccomended range")
-
-    elif (model_name.lower() == 'difi7'):
-        raise ValueError("Difi 7 is not supported since the release of difi8")
-        """("importing coeff from difi8")"""
-        from DIFI.get_f107_index_all import get_f107_index, load_coefs, load_swarm_DIFI7
-        difi_t_f107, difi_f107 = load_coefs()
-        swarm_data = load_swarm_DIFI7()
-        end_time = float(difi_t_f107[-1])
     else:
         raise ValueError("Input model_name = difi8, xdifi2, or difi7. Input model name didn't match any models.")
     

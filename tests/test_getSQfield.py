@@ -4,9 +4,9 @@ import csv  # from Python stdlib
 
 import numpy as np
 
-from DIFI.getSQfield import getSQfield
-from DIFI import jd2000_dt
-from DIFI import get_f107_index_all
+from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6 import jd2000_dt
+from CM6.CM6 import get_f107_index_CM6
 import warnings
 import pytest
 
@@ -45,7 +45,7 @@ class test_getSQfield(unittest.TestCase):
   
     def get_f107(self,point):
         """Helper function to get f107 by date (test data doesn't specify)"""
-        difi_t_f107, difi_f107 = get_f107_index_all.load_coefs()
+        difi_t_f107, difi_f107 = get_f107_index_CM6.load_coefs()
         start_time = 5114.0
         end_time = float(difi_t_f107[-1])
         sq_t = jd2000_dt.jd2000_dt(point['year'], 
@@ -53,7 +53,7 @@ class test_getSQfield(unittest.TestCase):
                                    point['day'], 
                                    point['hour'],
                                     point['minutes'])
-        f107 = get_f107_index_all.get_f107_index(sq_t, start_time, end_time, difi_f107, difi_t_f107)
+        f107 = get_f107_index_CM6.get_f107_index(sq_t, start_time, end_time, difi_f107, difi_t_f107)
         return f107.tolist()[0] #returns an array and we just want float
 
     def parse_geomagnetic_data(self, filepath):

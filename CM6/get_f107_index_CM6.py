@@ -1,7 +1,7 @@
 import os
 import numpy as np
 from functools import lru_cache
-from DIFI import getSQfield, SwarmL2_F107_Read, SwarmL2_MIO_SHA_Read_v2
+from DIFI import SwarmL2_F107_Read, SwarmL2_MIO_SHA_Read_v2
 from typing import Optional, Union
 
 

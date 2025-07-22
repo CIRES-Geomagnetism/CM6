@@ -1,5 +1,5 @@
 import random
-from DIFI import getSQfield
+from CM6 import getSQfield
 
 def list_inputs():
     year = 2023

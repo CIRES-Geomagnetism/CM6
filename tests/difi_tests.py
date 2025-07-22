@@ -2,18 +2,18 @@ import unittest
 import numpy as np
 import os
 
-from DIFI import jd2000_dt
+from CM6 import jd2000_dt
 
-from DIFI import legendre as l
-from DIFI import sun_md2000 as s
-from DIFI import getmut as gm
-from DIFI import geod2geoc as gg
-from DIFI import SwarmL2_MIO_SHA_Read_v2 as sr
+from CM6 import legendre as l
+from CM6 import sun_md2000 as s
+from CM6 import getmut as gm
+from CM6 import geod2geoc as gg
+from CM6 import SwarmL2_MIO_SHA_Read_v2 as sr
 
-from DIFI import forward_Sq_d_Re as fs
-from DIFI import design_SHA_Sq_i_Re_v2 as dsi
-from DIFI import design_SHA_Sq_e_Re_v2 as dse
-from DIFI import gg2gm_2010 as gg2gm
+from CM6 import forward_Sq_d_Re as fs
+from CM6 import design_SHA_Sq_i_Re_v2 as dsi
+from CM6 import design_SHA_Sq_e_Re_v2 as dse
+from CM6 import gg2gm_2010 as gg2gm
 
 def raiseException(e):
     raise e

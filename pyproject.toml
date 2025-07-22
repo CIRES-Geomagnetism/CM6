@@ -1,12 +1,10 @@
 [project]
-name = "pyDIFI"
-version = "7.2.0"
+name = "py_CM6"
+version = "1.0.0"
 authors = [
     { name="Collin Kadlecek", email="Collin.Kadlecek@colorado.edu" },
-  { name="Li-Yin Young", email="liyin.young@colorado.edu" },
-  { name="Liam Kilcommons", email="liam.kilcommons@colorado.edu" }
 ]
-description = "The python module for DIFI-8"
+description = "The python module for CM6"
 readme = "README.md"
 #requires-python = ">=3.11"
 classifiers = [
@@ -20,7 +18,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = ["numpy",
-    "geomaglib>=1.2.1"
+    "geomaglib>=1.2.1",
+    "pydifi @ https://github.com/CIRES-Geomagnetism/DIFI/releases/download/v8.0.1/pydifi-8.0.0-py3-none-any.whl",
 ]
 
 [build-system]
@@ -28,7 +27,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-Homepage = "https://github.com/CIRES-Geomagnetism/DIFI"
+Homepage = "https://github.com/CIRES-Geomagnetism/CM6"
 
 [tool.setuptools]
-packages = ["DIFI"]
+packages = ["CM6"]

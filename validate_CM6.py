@@ -1,6 +1,6 @@
 import numpy as np
 # from DIFI import get_SQ_field_TESTING_ONLY as getSQfield
-from DIFI.getSQfield import getSQfield
+from CM6.getSQfield_CM6 import getSQfield
 
 def parse_geomagnetic_data(filepath):
     # Define column labels
@@ -41,13 +41,14 @@ for i in range(0, len(data)):
 
 
     if np.abs(B['X'] - data[i]['X']) > 1e-3:
-        print("there is a mismatch in B['X'] - data[i]['X'] of size", B['X'] - data[i]['X'])
+        print("there is a mismatch in B['X'] - data[i]['X'] of size", B['X'] - data[i]['X'], B['X'] , data[i]['X'])
         # raise ValueError("There was a mismatch of magnitude greater than 1e-3 in the X component")
     if np.abs(B['Y'] - data[i]['Y']) > 1e-3:
-        print("there is a mismatch in B['Y'] - data[i]['Y'] of size", B['Y'] - data[i]['Y'])
+        print("there is a mismatch in B['Y'] - data[i]['Y'] of size", B['Y'] - data[i]['Y'], B['Y'] , data[i]['Y'])
         # raise ValueError("There was a mismatch of magnitude greater than 1e-3 in the Y component")
     if np.abs(B['Z'] - data[i]['Z']) > 1e-3:
-        print("there is a mismatch in B['Z'] - data[i]['Z'] of size", B['Z'] - data[i]['Z'])
+        print("there is a mismatch in B['Z'] - data[i]['Z'] of size", B['Z'] - data[i]['Z'], B['Z'] , data[i]['Z'])
+        print('\n')
         # raise ValueError("There was a mismatch of magnitude greater than 1e-3 in the Y component")
 print(f"Max difference: {max_diff}")
 print(f"Max Value is:", max_val)

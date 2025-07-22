@@ -1,5 +1,5 @@
 import numpy as np
-from DIFI.getSQfield import getSQfield
+from CM6.CM6.getSQfield_CM6 import getSQfield
 def parse_sq_input_output(filepath):
     import re
     import numpy as np

@@ -3,11 +3,11 @@ import datetime, warnings
 import numpy as np
 from typing import Union
 
-from DIFI import jd2000_dt
-from DIFI import getmut
-from DIFI import gg2gm_2010
-from DIFI import design_SHA_Sq_i_Re_v2
-from DIFI import design_SHA_Sq_e_Re_v2
+from CM6 import jd2000_dt
+from CM6 import getmut
+from CM6 import gg2gm_2010
+from CM6 import design_SHA_Sq_i_Re_v2
+from CM6 import design_SHA_Sq_e_Re_v2
 
 
 def forward_Sq_d_Re(r: Union[float, list], theta: Union[float, list], phi: Union[float, list], t: Union[float, list], f107: Union[float, list], s: dict) -> tuple[np.ndarray, np.ndarray]:

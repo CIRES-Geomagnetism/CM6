@@ -1,7 +1,7 @@
-# DIFI-8 IONOSPHERE MAGNETIC FIELD MODEL
+# CM6 IONOSPHERE MAGNETIC FIELD MODEL
 
 The Dedicated Ionospheric Field Inversion (DIFI) model is a Swarm-based, global model of the Sq and equatorial electrojet magnetic fields at mid and low-latitudes. It describes variations with local time, season and solar flux and separates primary and induced magnetic fields.
-The latest version of DIFI is DIFI-8. Please see the [DIFI-8](https://geomag.colorado.edu/index.php/node/785) for the detail. Find info on xDIFI2 [here](https://geomag.colorado.edu/index.php/node/786).
+The latest version of DIFI is CM6.
 
 ## Prerequirements
 
@@ -9,12 +9,15 @@ The latest version of DIFI is DIFI-8. Please see the [DIFI-8](https://geomag.col
 - geomaglib >= 1.2.1
   - install by `pip install geomaglib>=1.2.1`
 - numpy 
+- DIFI
+
+#To run the code, begin by running pip install -e . at the top of the CM6 folder
 
 
 ## Installation
 Our team will release the DIFI Python API to PyPI soon. If you would like to install DIFI at this time, please clone our git repository or use the following instructions to install DIFI in your virtual environment.
 
-`pip install git+https://github.com/CIRES-Geomagnetism/DIFI.git@main`
+`pip install git+https://github.com/CIRES-Geomagnetism/CM6.git@main`
 
 
 ## Quick Start
@@ -45,7 +48,7 @@ N = len(month)
 lat = [random.uniform(-90, 90) for _ in range(N)]
 lon = [random.uniform(-180, 180) for _ in range(N)]
 
-B = getSQfield(lat, lon, year, month, day, model_name="xdifi2")
+B = getSQfield(lat, lon, year, month, day, model_name="CM6")
 print(B)
 ```
 It will return the results
