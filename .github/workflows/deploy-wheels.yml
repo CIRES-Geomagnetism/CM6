@@ -63,7 +63,7 @@ jobs:
       - name: Test installation
         shell: bash
         run: |
-          python -c "import DIFI as difi; print(difi.__version__)"
+          python -c "import CM6 as difi; print(difi.__version__)"
 
 
   release:
