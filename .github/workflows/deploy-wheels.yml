@@ -72,15 +72,16 @@ jobs:
     needs: [build_wheels, test_artifacts]
 
     steps:
-      - name: Download Artifacts
+      - name: Download Wheels Artifact
         uses: actions/download-artifact@v4
         with:
-          path: dist
+          name: wheels-3.13
+          path: wheels
 
       - name: Flatten wheel files
         run: |
           mkdir all_wheels
-          find dist -name '*.whl' -exec cp {} all_wheels/ \;
+          cp wheels/*.whl all_wheels/
 
 
       - name: Upload wheels to Github Release
