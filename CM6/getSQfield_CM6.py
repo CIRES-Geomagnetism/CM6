@@ -19,7 +19,7 @@ def theta_to_geod_lat(theta: float) -> float:
 
     return lat
 
-def getSQfield(lat: Union[float, list], lon: Union[float, list], year: Union[int, list], month: Union[int, list], day: Union[int, list], hour: Union[int, list]=0, minutes: Union[int, list]=0, h: Union[float, list]=0,r: Union[float, list]=0, f107_1: Optional[Union[float, list]]=None, model_name: Optional[Union[str]]="CM6", geoc:Optional[bool] = False, return_geoc:Optional[bool] = False) -> dict:
+def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union[int, list], month: Union[int, list], day: Union[int, list], hour: Union[int, list]=0, minutes: Union[int, list]=0, h: Union[float, list]=0,r: Union[float, list]=0, f107_1: Optional[Union[float, list]]=None, model_name: Optional[Union[str]]="CM6", geoc:Optional[bool] = False, return_geoc:Optional[bool] = False) -> dict:
     """
     Input:
         Latitude, lat (in WGS-84 coordinates)
