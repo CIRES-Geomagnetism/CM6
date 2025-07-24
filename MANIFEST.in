@@ -1,2 +1,4 @@
 include CM6/coefs/MIO_CM6.DBL.txt
 include CM6/coefs/f107.DBL
+include __init__.py
+include getSQfield_CM6.py
