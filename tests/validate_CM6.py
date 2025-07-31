@@ -1,5 +1,5 @@
 import numpy as np
-from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6.getSQfield_CM6 import getSQfield_CM6 as getSQfield
 
 def parse_geomagnetic_data(filepath):
     # Define column labels
@@ -20,12 +20,12 @@ def parse_geomagnetic_data(filepath):
     
     return data
 
-data = parse_geomagnetic_data("tests/test_values_DIFI8_v1_20250528.txt")
+data = parse_geomagnetic_data("tests/test_values_CM6_v1_20250731.txt")
 print(data[0])
 max_diff = 0.0
 
 for i in range (0, len(data)):
-    B = getSQfield(data[i]['lat'], data[i]['lon'], data[i]['year'], data[i]['month'], data[i]['day'], hour=data[i]['hour'], minutes = data[i]['min'], h = data[i]['h'],f107_1 = data[i]['F10.7'], model_name = 'DIFI8')
+    B = getSQfield(data[i]['lat'], data[i]['lon'], data[i]['year'], data[i]['month'], data[i]['day'], hour=data[i]['hour'], minutes = data[i]['min'], h = data[i]['h'],f107_1 = data[i]['F10.7'], model_name = 'CM6')
     
     if B['X'] != data[i]['X']:
          max_diff = max(max_diff, np.abs(B['X'] - data[i]['X']))

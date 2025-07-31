@@ -23,7 +23,7 @@ def parse_geomagnetic_data(filepath):
 
 if __name__ == '__main__':
     #list input, double wanrning for values being above and below tolerance
-    model_name = 'difi8'
+    model_name = 'CM6'
     data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250528.txt")
     lat, lon, year, month, day, hour, minute, h, f107 = [],[],[],[],[],[],[],[],[]
     for i in range(0,len(data)):
