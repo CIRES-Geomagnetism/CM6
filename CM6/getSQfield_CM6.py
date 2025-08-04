@@ -61,14 +61,18 @@ def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union
     start_time = 0#5114.0
 
     sq_t = jd2000_dt.jd2000_dt(year, month, day, hour, minutes)
-    warn_year_2001 = jd2000_dt.jd2000_dt(2001, 1, 1, 0, 0)
-    warn_year_2014= jd2000_dt.jd2000_dt(2014, 1, 1, 0, 0)    
-    warn_year_2024= jd2000_dt.jd2000_dt(2024, 1, 1, 0, 0)
-    end_DIFI_valid = 9496.5
+    warn_year_2001 = jd2000_dt.jd2000_dt(2000, 1, 1, 0, 0)
+    warn_year_2014= jd2000_dt.jd2000_dt(2019, 7, 2, 0, 0)  
+    warn_year_2024= jd2000_dt.jd2000_dt(2019, 7, 2, 0, 0)
+    end_DIFI_valid = jd2000_dt.jd2000_dt(2019, 7, 2, 0, 0)
 
     if np.any(sq_t) > end_DIFI_valid:
         raise Exception(
-            "DIFI is not valid after noon 12/31/2026 . Input time data contains a date outside DIFI's validity range."
+            "CM6 is not valid after 7/1/2019. Input time data contains a date outside CM6's validity range."
+        )
+    if np.any(sq_t) > end_DIFI_valid:
+        raise Exception(
+            "CM6 is not valid before 1/1/2000. Input time data contains a date outside CM6's validity range."
         )
     start_f107_time = jd2000_dt.jd2000_dt(2000, 1, 1, 0, 0)
     end_f107_time =  jd2000_dt.jd2000_dt(2025, 1, 1, 0, 0) 
@@ -79,11 +83,6 @@ def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union
         from CM6.get_f107_index_CM6 import get_f107_index, load_coefs, load_swarm_CM6
         difi_t_f107, difi_f107 = load_coefs()
         swarm_data = load_swarm_CM6()
-        end_time = float(difi_t_f107[-1])
-        if np.any(sq_t < warn_year_2001):
-            warnings.warn("Dataset contains date before 2001.0, outside xDIFI2's reccomended range")
-        if np.any(sq_t > warn_year_2024):
-            warnings.warn("Dataset contains date after 2024.0, outside xDIFI2's reccomended range")
     else:
         raise ValueError("Input model_name = difi8, xdifi2, or difi7. Input model name didn't match any models.")
     
