@@ -1,5 +1,5 @@
 import numpy as np
-from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6.getSQfield_CM6 import getSQfield_CM6
 
 def parse_geomagnetic_data(filepath):
     # Define column labels
@@ -21,22 +21,22 @@ def parse_geomagnetic_data(filepath):
     return data
 def test_single_time_points():
     #early warning: input date is just before the minimum recomended time
-    B = getSQfield(0, 0, 2000, 
+    B = getSQfield_CM6(0, 0, 2000,
                     1, 1, h = 0,f107_1 = 100, 
-                        model_name = 'xdifi2')
+                        model_name = 'cm6')
 
     #late warning: input date is just after the maximum recomended time
-    B = getSQfield(0, 0, 2024, 
+    B = getSQfield_CM6(0, 0, 2024,
                     1, 2, h = 0,f107_1 = 100, 
-                        model_name = 'xdifi2')
+                        model_name = 'cm6')
     #early warning: input date is just before the minimum recomended time
-    B = getSQfield(0, 0, 2000, 
+    B = getSQfield_CM6(0, 0, 2000,
                     1, 1, h = 0,f107_1 = 100, 
-                        model_name = 'difi8')
+                        model_name = 'cm6')
     #late warning: input date is just after the maximum recomended time
-    B = getSQfield(0, 0, 2024, 
+    B = getSQfield_CM6(0, 0, 2024,
                     1, 2, h = 0,f107_1 = 100, 
-                        model_name = 'difi8')
+                        model_name = 'cm6')
 
 if __name__ == '__main__':
     """Should print 4 warnings, for out of time range"""

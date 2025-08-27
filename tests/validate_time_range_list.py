@@ -1,5 +1,5 @@
 import numpy as np
-from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6.getSQfield_CM6 import getSQfield_CM6
 
 
 def parse_geomagnetic_data(filepath):
@@ -24,7 +24,7 @@ def parse_geomagnetic_data(filepath):
 if __name__ == '__main__':
     #list input, double wanrning for values being above and below tolerance
     model_name = 'CM6'
-    data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250528.txt")
+    data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250731.txt")
     lat, lon, year, month, day, hour, minute, h, f107 = [],[],[],[],[],[],[],[],[]
     for i in range(0,len(data)):
         lat.append(data[i]['lat'])
@@ -45,13 +45,13 @@ if __name__ == '__main__':
     hours = np.linspace(0,23, N)
     minutes = np.linspace(0,59, N)
 
-    B = getSQfield(lat, lon,years, 
+    B = getSQfield_CM6(lat, lon,years,
                     months, days, hour= hours, minutes=minutes ,
                     h = 0,f107_1 = 100, 
-                    model_name = 'xdifi2')
+                    model_name = 'cm6')
     
     years = np.linspace(2014, 2024, N)
-    B = getSQfield(lat, lon,years, 
+    B = getSQfield_CM6(lat, lon,years,
                     months, days, hour= hours, minutes=minutes ,
                     h = 0,f107_1 = 100, 
-                    model_name = 'difi8')
+                    model_name = 'cm6')

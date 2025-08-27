@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = ["numpy",
     "geomaglib>=1.2.1",
-    "pydifi @ https://github.com/CIRES-Geomagnetism/DIFI/releases/download/v8.0.2/pydifi-8.0.0-py3-none-any.whl",
+    "pydifi @ https://github.com/CIRES-Geomagnetism/DIFI/releases/download/v8.1.0/pydifi-8.1.0-py3-none-any.whl",
 ]
 
 [build-system]
