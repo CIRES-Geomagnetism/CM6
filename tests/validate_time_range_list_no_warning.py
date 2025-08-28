@@ -1,5 +1,5 @@
 import numpy as np
-from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6.getSQfield_CM6 import getSQfield_CM6
 
 def parse_geomagnetic_data(filepath):
     # Define column labels
@@ -44,14 +44,14 @@ if __name__ == '__main__':
     hours = np.linspace(0,23, N)
     minutes = np.linspace(0,59, N)
 
-    B = getSQfield(lat, lon,years, 
+    B = getSQfield_CM6(lat, lon,years,
                     months, days, hour= hours, minutes=minutes ,
                     h = 0,f107_1 = 100, 
-                    model_name = 'xdifi2')
+                    model_name = 'cm6')
     
     years = np.linspace(2014, 2023, N)
-    B = getSQfield(lat, lon,years, 
+    B = getSQfield_CM6(lat, lon,years,
                     months, days, hour= hours, minutes=minutes ,
                     h = 0,f107_1 = 100, 
-                    model_name = 'difi8')
+                    model_name = 'cm6')
     print("no warnings should print")

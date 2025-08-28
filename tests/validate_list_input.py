@@ -1,5 +1,5 @@
 import numpy as np
-from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6.getSQfield_CM6 import getSQfield_CM6
 
 def parse_geomagnetic_data(filepath):
     # Define column labels
@@ -20,9 +20,9 @@ def parse_geomagnetic_data(filepath):
     
     return data
 
-models = ['xDIFI2', 'DIFI8']
+models = ['CM6']
 for model_name in models:
-    data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250528.txt")
+    data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250731.txt")
     lat, lon, year, month, day, hour, minute, h, f107 = [],[],[],[],[],[],[],[],[]
     for i in range(0,len(data)):
         lat.append(data[i]['lat'])
@@ -36,7 +36,7 @@ for model_name in models:
         f107.append(data[i]['F10.7'])
 
 
-    B = getSQfield(lat, lon, year, 
+    B = getSQfield_CM6(lat, lon, year,
                     month, day, hour=hour,
                         minutes = minute, h = h,f107_1 = f107, 
                         model_name = model_name)
