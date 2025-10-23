@@ -1,5 +1,5 @@
 import numpy as np
-from CM6.CM6.getSQfield_CM6 import getSQfield
+from CM6.getSQfield_CM6 import getSQfield_CM6 as getSQfield
 def parse_sq_input_output(filepath):
     import re
     import numpy as np
@@ -36,7 +36,7 @@ def parse_sq_input_output(filepath):
 
     return data
 
-inputs = parse_sq_input_output('tests/test_val_above_SQ.txt')
+inputs = parse_sq_input_output('tests/test_values_CM6_v2_aboveSQfield_20251015.txt')
 # print("inptuts", inputs)
 inputs['theta_1'] = 90 - np.array(inputs['theta_1'])
 B = getSQfield(inputs['theta_1'], inputs['phi_1'], year = 2014, month = 3, day = 21, hour = 12, h = inputs['r_1']-6371.2,f107_1 = inputs['f107_1'], model_name = 'difi8', geoc = True )

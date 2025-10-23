@@ -94,14 +94,37 @@ def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union
     B_XYZ = {}
     # print "Difi input", r_gc, theta_gc, RV['lon'], sq_t, f107_1
     
-    [B_1, B_2] = forward_Sq_d_Re.forward_Sq_d_Re(
-        r_gc,
-        cotheta_gc,
-        lon,
-        sq_t,
-        f107_1,
-        swarm_data
-    )
+    a = 6371.2
+    rho_Sq = (a + swarm_data['h']) / a
+    rho = np.array(r_gc / a)
+    if (np.min(rho) < rho_Sq) and (np.max(rho) >= rho_Sq):#If min below SQ and max above SQ
+        #Split dataset into above and below SQ
+        above_SQ_mask = rho < rho_Sq
+        below_SQ_mask = rho >= rho_Sq
+        # print('rioiarsnt\n\n\n',r_gc[above_SQ_mask], 
+        # cotheta_gc[above_SQ_mask], lon[above_SQ_mask], sq_t[above_SQ_mask], f107_1[above_SQ_mask], 
+        # swarm_data)
+        [above_output1, above_output2] = forward_Sq_d_Re.forward_Sq_d_Re(r_gc[above_SQ_mask], 
+        cotheta_gc[above_SQ_mask], lon[above_SQ_mask], sq_t[above_SQ_mask], f107_1[above_SQ_mask], 
+        swarm_data)
+        [below_output1, below_output2] = forward_Sq_d_Re.forward_Sq_d_Re(r_gc[below_SQ_mask], 
+        cotheta_gc[below_SQ_mask], lon[below_SQ_mask], sq_t[below_SQ_mask], f107_1[below_SQ_mask], 
+        swarm_data)
+        B_1,B_2 = np.zeros((3, len(r_gc))), np.zeros((3, len(r_gc)))
+        B_1[:, above_SQ_mask] = above_output1
+        B_1[:, below_SQ_mask] = below_output1
+
+        B_2[:, above_SQ_mask] = above_output2
+        B_2[:, below_SQ_mask] = below_output2
+    else:
+        [B_1, B_2] = forward_Sq_d_Re.forward_Sq_d_Re(
+            r_gc,
+            cotheta_gc,
+            lon,
+            sq_t,
+            f107_1,
+            swarm_data
+        )
     B_C = B_1 + B_2
     B_XYZ['Z'] = -1 * B_C[0]
     B_XYZ['Y'] = B_C[2]
