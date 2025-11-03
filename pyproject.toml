@@ -19,7 +19,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-dependencies = ["numpy",
+dependencies = ["numpy>=2.0.1",
     "geomaglib>=1.2.1",
     "pydifi @ https://github.com/CIRES-Geomagnetism/DIFI/releases/download/v8.1.2/pydifi-8.1.2-py3-none-any.whl"
 ]
