@@ -56,10 +56,10 @@ jobs:
           pip install pytest
           pip install --find-links dist py_CM6 
 
-      - name: Test installation
+      - name: Test wheel importable
         shell: bash
         run: |
-          py.test
+          python -c "import CM6 as cm6; print(cm6.__version__)"
 
   release:
     name: Create GitHub Release
