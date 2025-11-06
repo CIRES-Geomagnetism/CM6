@@ -1,6 +1,5 @@
 import numpy as np
-from CM6.getSQfield_CM6 import getSQfield_CM6
-
+from CM6.CM6.getSQfield_CM6 import getSQfield
 
 def parse_geomagnetic_data(filepath):
     # Define column labels
@@ -22,9 +21,9 @@ def parse_geomagnetic_data(filepath):
     return data
 
 if __name__ == '__main__':
-    #list input, double wanrning for values being above and below tolerance
-    model_name = 'CM6'
-    data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250731.txt")
+    #all input dates are within time range, no warnings should print
+    model_name = 'difi8'
+    data = parse_geomagnetic_data(f"tests/test_values_{model_name}_v1_20250528.txt")
     lat, lon, year, month, day, hour, minute, h, f107 = [],[],[],[],[],[],[],[],[]
     for i in range(0,len(data)):
         lat.append(data[i]['lat'])
@@ -39,19 +38,20 @@ if __name__ == '__main__':
     N = 40
     #Create time from 2000.0 to 2025.9
     lat, lon, year, month, day, hour, minute, h, f107 = lat[:N], lon[:N], year[:N], month[:N], day[:N], hour[:N], minute[:N], h[:N], f107[:N]
-    years = np.linspace(2000, 2025, N)
+    years = np.linspace(2001, 2023, N)
     months = np.linspace(1,12, N)
     days = np.linspace(1,31, N)
     hours = np.linspace(0,23, N)
     minutes = np.linspace(0,59, N)
 
-    B = getSQfield_CM6(lat, lon,years,
+    B = getSQfield(lat, lon,years, 
                     months, days, hour= hours, minutes=minutes ,
                     h = 0,f107_1 = 100, 
-                    model_name = 'cm6')
+                    model_name = 'xdifi2')
     
-    years = np.linspace(2014, 2024, N)
-    B = getSQfield_CM6(lat, lon,years,
+    years = np.linspace(2014, 2023, N)
+    B = getSQfield(lat, lon,years, 
                     months, days, hour= hours, minutes=minutes ,
                     h = 0,f107_1 = 100, 
-                    model_name = 'cm6')
+                    model_name = 'difi8')
+    print("no warnings should print")
