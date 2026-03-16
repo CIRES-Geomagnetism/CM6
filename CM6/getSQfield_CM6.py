@@ -80,7 +80,8 @@ def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union
     if (model_name.lower() == 'cm6'):
         """("importing coeff from xdifi")"""
         # from DIFI import get_f107_index_xDIFI as get_f107_index
-        from CM6.get_f107_index_CM6 import get_f107_index, load_coefs, load_swarm_CM6
+        from CM6.get_f107_index_CM6 import load_swarm_CM6
+        from DIFI.get_f107_index_all import load_coefs, get_f107_index 
         difi_t_f107, difi_f107 = load_coefs()
         swarm_data = load_swarm_CM6()
     else:

@@ -1,6 +1,6 @@
 [project]
 name = "py_CM6"
-version = "1.1.6"
+version = "1.1.7"
 authors = [
     { name="Collin Kadlecek", email="Collin.Kadlecek@colorado.edu" },
     { name="Li-Yin Young", email="liyin.young@colorado.edu" },
@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = ["numpy>=2.0.1",
     "geomaglib>=1.2.1",
-    "pydifi @ https://github.com/CIRES-Geomagnetism/DIFI/releases/download/v8.1.2/pydifi-8.1.2-py3-none-any.whl"
+    "pydifi"
 ]
 
 [build-system]
