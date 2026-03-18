@@ -33,7 +33,7 @@ def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union
         An array of minutes, minutes
         Height above WGS84 ellipsoid, h
         Radius in geocentric coordinates, r
-        Name of DIFI model, DIFI8,xDIFI2, DIFI7, model_name
+        Name of DIFI model, CM6 ~ Vestigial from DIFI's getSQfield
         Treat inputs as geocentric (must use r input, not h), geoc
         Return geocentric B, return_geoc
 
@@ -85,7 +85,7 @@ def getSQfield_CM6(lat: Union[float, list], lon: Union[float, list], year: Union
         difi_t_f107, difi_f107 = load_coefs()
         swarm_data = load_swarm_CM6()
     else:
-        raise ValueError("Input model_name = difi8, xdifi2, or difi7. Input model name didn't match any models.")
+        raise ValueError("Input model_name = CM6. Input model name didn't match this model name. Alternatively, leave this argument blank.")
     
     if f107_1 is None:
         f107_1 = get_f107_index(sq_t, start_f107_time, end_f107_time, difi_f107, difi_t_f107)
