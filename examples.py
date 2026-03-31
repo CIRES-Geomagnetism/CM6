@@ -1,5 +1,5 @@
 import random
-from CM6 import getSQfield
+from CM6 import getSQfield_CM6
 
 def list_inputs():
     year = 2023
@@ -10,13 +10,13 @@ def list_inputs():
     lat = [random.uniform(-90, 90) for _ in range(N)]
     lon = [random.uniform(-180, 180) for _ in range(N)]
 
-    B = getSQfield(lat, lon, year, month, day, model_name="xdifi2")
+    B = getSQfield_CM6(lat, lon, year, month, day, model_name="CM6")
 
     print(B)
 
 def point_inputs():
     lat, lon, year, month, day, hour = 20.5, 100.5, 2024, 6, 6, 0
-    B = getSQfield(lat, lon, year, month, day, hour=hour)
+    B = getSQfield_CM6(lat, lon, year, month, day, hour=hour)
 
     print(B)
 
